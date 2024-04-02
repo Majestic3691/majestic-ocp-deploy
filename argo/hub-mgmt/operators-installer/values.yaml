@@ -56,7 +56,7 @@ operators-installer:
     otherTargetNamespaces: 
   - name: dynatrace
     createNamespace: true
-    targetOwnNamespace: true
+    targetOwnNamespace: false
     otherTargetNamespaces: 
     
 
