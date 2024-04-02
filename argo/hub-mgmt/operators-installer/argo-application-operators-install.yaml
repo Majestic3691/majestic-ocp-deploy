@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: operators-installer
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    chart: operators-installer
+    helm:
+      valueFiles:
+        - values.yaml
+    repoURL: 'https://redhat-cop.github.io/helm-charts'
+    targetRevision: 2.4.3

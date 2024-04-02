@@ -1,0 +1,163 @@
+operators-installer:
+  installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli:v4.14
+  
+  operatorGroups:
+  - name: external-secrets-operator
+    createNamespace: true
+    targetOwnNamespace: false
+    otherTargetNamespaces:
+  - name: group-sync-operator
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces:
+  - name: cert-manager-operator
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces:
+  - name: cert-utils-operator
+    createNamespace: true
+    targetOwnNamespace: false
+    otherTargetNamespaces:
+  - name: openshift-logging
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces:
+  - name: openshift-operators-redhat
+    createNamespace: true
+    targetOwnNamespace: false
+    otherTargetNamespaces:
+  - name: rhacs-operator
+    createNamespace: true
+    targetOwnNamespace: false
+    otherTargetNamespaces: 
+  - name: open-cluster-management
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: dev-workspace-operator
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: openshift-gitops-operator
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: openshift-service-mesh
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: vault-secrets-operator-system
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: dell-container-storage-modules
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+  - name: dynatrace
+    createNamespace: true
+    targetOwnNamespace: true
+    otherTargetNamespaces: 
+    
+
+  operators:
+  - channel: alpha
+    installPlanApproval: Manual
+    name: group-sync-operator
+    namespace: group-sync-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+    csv: group-sync-operator.v0.0.26
+  - channel: stable
+    installPlanApproval: Manual
+    name: external-secrets-operator
+    namespace: openshift-operators
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+    csv: external-secrets-operator.v0.9.4
+  - channel: alpha
+    installPlanApproval: Manual
+    name: cert-utils-operator
+    namespace: cert-utils-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+    csv: cert-utils-operator.v1.3.11
+  - channel: stable-v1.11
+    installPlanApproval: Manual
+    name: openshift-cert-manager-operator
+    namespace: cert-manager-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: cert-manager-operator.v1.11.5
+  - channel: stable
+    installPlanApproval: Manual
+    name: cluster-logging
+    namespace: openshift-logging
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: cluster-logging.v5.8.5
+  - channel: stable
+    installPlanApproval: Manual
+    name: elasticsearch-operator
+    namespace: openshift-operators-redhat
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: elasticsearch-operator.v5.7.4
+  - channel: stable
+    installPlanApproval: Manual
+    name: rhacs-operator
+    namespace: rhacs-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: rhacs-operator.v4.1.3
+  - channel: release-2.10
+    installPlanApproval: Manual
+    name: advanced-cluster-management
+    namespace: open-cluster-management
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: advanced-cluster-management.v2.10.0
+  - channel: fast
+    installPlanApproval: Manual
+    name: dev-workspace-operator
+    namespace: openshift-operators
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: devworkspace-operator.v0.26.0
+  - channel: latest
+    installPlanApproval: Manual
+    name: openshift-gitops-operator
+    namespace: openshift-gitops-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: openshift-gitops-operator.v1.12.0
+  - channel: stable
+    installPlanApproval: Manual
+    name: openshift-service-mesh
+    namespace: openshift-operators
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    csv: servicemeshoperator.v2.5.0
+  - channel: stable
+    installPlanApproval: Manual
+    name: vault-secrets-operator-system
+    namespace: vault-secrets-operator-system
+    source: certified-operators
+    sourceNamespace: openshift-marketplace
+    csv: vault-secrets-operator.v0.5.2
+  - channel: stable
+    installPlanApproval: Manual
+    name: dell-container-storage-modules
+    namespace: openshift-operators
+    source: certified-operators
+    sourceNamespace: openshift-marketplace
+    csv: dell-csm-operator-certified.v1.4.3
+  - channel: alpha
+    installPlanApproval: Manual
+    name: dynatrace
+    namespace: dynatrace
+    source: certified-operators
+    sourceNamespace: openshift-marketplace
+    csv: dynatrace.v0.15.0
+  
+  
