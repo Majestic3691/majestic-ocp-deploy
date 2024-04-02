@@ -40,7 +40,7 @@ operators-installer:
     otherTargetNamespaces: 
   - name: openshift-gitops-operator
     createNamespace: true
-    targetOwnNamespace: true
+    targetOwnNamespace: false
     otherTargetNamespaces: 
   - name: openshift-service-mesh
     createNamespace: true
